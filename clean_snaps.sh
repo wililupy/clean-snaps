@@ -2,9 +2,10 @@
 # Remove old revisions of snaps
 # Make sure that snaps (like snap-store) are disabled
 
+echo "Following snaps to be removed: "
 snap list --all | awk '/disabled/{print $1}' |
     while read snapname; do
-        echo "Following snaps to be removed: $snapname." 
+        echo " $snapname" 
     done
         read -p "Continue (y/n) " -n 1 -r
         echo 
@@ -15,3 +16,4 @@ snap list --all | awk '/disabled/{print $1}' |
         snap remove "$snapname" --revision="$revision"
     done
     fi
+echo "No snaps removed."
