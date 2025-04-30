@@ -16,4 +16,3 @@ snap list --all | awk '/disabled/{print $1}' |
         snap remove "$snapname" --revision="$revision"
     done
     fi
-echo "No snaps removed."
